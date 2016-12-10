@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'VK MESSENGER SSAU' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for VK MESSENGER SSAU
+pod 'VK-ios-sdk'
+
+  target 'VK MESSENGER SSAUTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'VK MESSENGER SSAUUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
