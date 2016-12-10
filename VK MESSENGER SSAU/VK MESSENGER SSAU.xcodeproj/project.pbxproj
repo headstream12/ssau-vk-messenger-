@@ -16,6 +16,10 @@
 		B097C3591DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3581DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m */; };
 		B097C3641DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3631DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m */; };
 		B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE01DFC08DE009FAE3C /* AuthController.m */; };
+		B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE31DFC49CF009FAE3C /* ChatListController.m */; };
+		B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */; };
+		B0F7FFED1DFC9CC8009FAE3C /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFEB1DFC9CC8009FAE3C /* ChatCell.m */; };
+		B0F7FFEE1DFC9CC8009FAE3C /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0F7FFEC1DFC9CC8009FAE3C /* ChatCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,13 @@
 		B097C3651DFBFD1200E58776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
 		B0F7FFE01DFC08DE009FAE3C /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
+		B0F7FFE21DFC49CF009FAE3C /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListController.h; sourceTree = "<group>"; };
+		B0F7FFE31DFC49CF009FAE3C /* ChatListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListController.m; sourceTree = "<group>"; };
+		B0F7FFE61DFC4B7F009FAE3C /* ChatVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatVO.h; sourceTree = "<group>"; };
+		B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatVO.m; sourceTree = "<group>"; };
+		B0F7FFEA1DFC9CC8009FAE3C /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		B0F7FFEB1DFC9CC8009FAE3C /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		B0F7FFEC1DFC9CC8009FAE3C /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		D57745FEB52E6E67EA1206E8 /* Pods_VK_MESSENGER_SSAU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_MESSENGER_SSAU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4413D18C32D7744233ADD5E /* libPods-VK MESSENGER SSAUUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VK MESSENGER SSAUUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,10 +140,12 @@
 		B097C33D1DFBFD1100E58776 /* VK MESSENGER SSAU */ = {
 			isa = PBXGroup;
 			children = (
+				B0F7FFE51DFC4A58009FAE3C /* Value Objects */,
 				B097C3411DFBFD1100E58776 /* AppDelegate.h */,
 				B097C3421DFBFD1100E58776 /* AppDelegate.m */,
 				B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */,
 				B0F7FFE01DFC08DE009FAE3C /* AuthController.m */,
+				B0F7FFE91DFC9C9E009FAE3C /* ListController */,
 				B097C3471DFBFD1100E58776 /* Main.storyboard */,
 				B097C34A1DFBFD1100E58776 /* Assets.xcassets */,
 				B097C34C1DFBFD1100E58776 /* LaunchScreen.storyboard */,
@@ -166,6 +179,27 @@
 				B097C3651DFBFD1200E58776 /* Info.plist */,
 			);
 			path = "VK MESSENGER SSAUUITests";
+			sourceTree = "<group>";
+		};
+		B0F7FFE51DFC4A58009FAE3C /* Value Objects */ = {
+			isa = PBXGroup;
+			children = (
+				B0F7FFE61DFC4B7F009FAE3C /* ChatVO.h */,
+				B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */,
+			);
+			name = "Value Objects";
+			sourceTree = "<group>";
+		};
+		B0F7FFE91DFC9C9E009FAE3C /* ListController */ = {
+			isa = PBXGroup;
+			children = (
+				B0F7FFE21DFC49CF009FAE3C /* ChatListController.h */,
+				B0F7FFE31DFC49CF009FAE3C /* ChatListController.m */,
+				B0F7FFEA1DFC9CC8009FAE3C /* ChatCell.h */,
+				B0F7FFEB1DFC9CC8009FAE3C /* ChatCell.m */,
+				B0F7FFEC1DFC9CC8009FAE3C /* ChatCell.xib */,
+			);
+			name = ListController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B097C34E1DFBFD1100E58776 /* LaunchScreen.storyboard in Resources */,
+				B0F7FFEE1DFC9CC8009FAE3C /* ChatCell.xib in Resources */,
 				B097C34B1DFBFD1100E58776 /* Assets.xcassets in Resources */,
 				B097C3491DFBFD1100E58776 /* Main.storyboard in Resources */,
 			);
@@ -358,6 +393,9 @@
 				B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */,
 				B097C3431DFBFD1100E58776 /* AppDelegate.m in Sources */,
 				B097C3401DFBFD1100E58776 /* main.m in Sources */,
+				B0F7FFED1DFC9CC8009FAE3C /* ChatCell.m in Sources */,
+				B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */,
+				B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

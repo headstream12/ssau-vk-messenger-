@@ -8,6 +8,7 @@
 
 #import "AuthController.h"
 #import <VK_ios_sdk/VKSdk.h>
+#import "ChatListController.h"
 
 
 @interface AuthController () <VKSdkDelegate, VKSdkUIDelegate>
@@ -36,18 +37,6 @@
     if (!self.autorized) {
         [VKSdk authorize:@[VK_PER_PHOTOS,VK_PER_MESSAGES]];
     }
-//    VKRequest * req = [[VKApi users] get:@{@"fields":@"photo_50"}];
-//
-//    [req executeWithResultBlock:^(VKResponse * response) {
-//        NSLog(@"Json result: %@", response.json);
-//    } errorBlock:^(NSError * error) {
-//        if (error.code != VK_API_ERROR) {
-//            [error.vkError.request repeat];
-//        }
-//        else {
-//            NSLog(@"VK error: %@", error);
-//        }
-//    }];
 }
 
 #pragma mark - VKSdkDelegate
@@ -55,6 +44,27 @@
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result
 {
     NSLog(@"Authorization finished with result");
+    VKRequest * req = [[VKApi users] get:@{@"fields":@"photo_200"}];
+    
+    [req executeWithResultBlock:^(VKResponse * response) {
+        
+        ChatListController *listController = [[ChatListController alloc] init];
+        listController.chatVO = [[NSMutableArray alloc] init];
+        [listController filingChatVOWithCount:20];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
+        
+        [self presentViewController:navController animated:YES completion:nil];
+        
+        
+    } errorBlock:^(NSError * error) {
+        if (error.code != VK_API_ERROR) {
+            [error.vkError.request repeat];
+        }
+        else {
+            NSLog(@"VK error: %@", error);
+        }
+    }];
+
 }
 
 - (void)vkSdkUserAuthorizationFailed
