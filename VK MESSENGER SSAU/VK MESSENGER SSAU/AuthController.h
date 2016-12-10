@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AuthController.h
 //  VK MESSENGER SSAU
 //
 //  Created by Ilya Glazunov on 10.12.16.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface AuthController : UIViewController
 
-
+//5770115
 @end
 

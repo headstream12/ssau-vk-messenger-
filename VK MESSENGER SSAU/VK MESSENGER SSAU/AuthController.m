@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  AuthController.m
 //  VK MESSENGER SSAU
 //
 //  Created by Ilya Glazunov on 10.12.16.
 //  Copyright © 2016 Ilya Glazunov. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AuthController.h"
 
-@interface ViewController ()
+@interface AuthController ()
 
 @end
 
-@implementation ViewController
+@implementation AuthController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
