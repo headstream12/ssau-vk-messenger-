@@ -9,16 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-VK MESSENGER SSAUTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-VK MESSENGER SSAUUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>VK-ios-sdk-VKSdkResources.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>055704F3250DCA61BF7A00055432C8E3</key>
+		<key>0E2FC38340E610E2B990E917E5E103FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>20829F5F27A9500EF60B77323A47CD8B</key>
+		<key>3F72AB2C8840FFA69CB61C2A8DD6AB24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7525C92EBE1FA97CC1106E487CB97531</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F406C9D5330024F8960567A0491CA1B3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFED2E86DD84D33A82E4A381E95659D7</key>
+		<key>AB760DDA8F4B166D9CB5EA7BBC356675</key>
 		<dict>
 			<key>primary</key>
 			<true/>

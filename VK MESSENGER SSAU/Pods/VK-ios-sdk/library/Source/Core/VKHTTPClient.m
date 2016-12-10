@@ -31,8 +31,7 @@
 
 static VKHTTPClient *__clientInstance = nil;
 static NSString const *VK_API_URI = @"api.vk.com/method/";
-static NSString const *kVKMultipartFormBoundaryPrefix = @"VK_SDK";
-
+static NSString *const kVKMultipartFormBoundary = @"Boundary(======VK_SDK======)";
 
 @interface VKHTTPClient ()
 @property(readwrite, nonatomic, strong) NSMutableDictionary *defaultHeaders;
@@ -131,20 +130,19 @@ static NSString const *kVKMultipartFormBoundaryPrefix = @"VK_SDK";
     NSParameterAssert(![method isEqualToString:@"GET"] && ![method isEqualToString:@"HEAD"]);
 
     NSMutableURLRequest *request = [self requestWithMethod:method path:path parameters:nil secure:YES];
-    NSString *formBoundary = [NSString stringWithFormat:@"%@.boundary.%08x%08x", kVKMultipartFormBoundaryPrefix, arc4random(), arc4random()];
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", formBoundary];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", kVKMultipartFormBoundary];
     [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
 
     NSMutableData *postbody = [NSMutableData data];
     for (NSUInteger i = 0; i < images.count; i++) {
         VKUploadImage *uploadImageObject = images[i];
         NSString *fileName = [NSString stringWithFormat:@"file%d", (int) (i + 1)];
-        [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", formBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", kVKMultipartFormBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
         [postbody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@.%@\"\r\n", fileName, fileName, [uploadImageObject.parameters fileExtension]] dataUsingEncoding:NSUTF8StringEncoding]];
         [postbody appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", [uploadImageObject.parameters mimeType]] dataUsingEncoding:NSUTF8StringEncoding]];
         [postbody appendData:uploadImageObject.imageData];
     }
-    [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", formBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postbody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", kVKMultipartFormBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [request setHTTPBody:postbody];
     return request;
 }

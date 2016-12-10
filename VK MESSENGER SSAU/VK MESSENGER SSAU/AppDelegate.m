@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <VK_ios_sdk/VKSdk.h>
 
 @interface AppDelegate ()
 
@@ -46,5 +47,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    [VKSdk processOpenURL:url fromApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]];
+    return YES;
+}
 
 @end

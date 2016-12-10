@@ -10,6 +10,4 @@
 
 @interface AuthController : UIViewController
 
-//5770115
 @end
-
