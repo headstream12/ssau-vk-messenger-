@@ -1,12 +1,37 @@
 PODS:
+  - BxObjC (1.1.10):
+    - BxObjC/Common (= 1.1.10)
+    - BxObjC/Data (= 1.1.10)
+    - BxObjC/DB (= 1.1.10)
+    - BxObjC/Map (= 1.1.10)
+    - BxObjC/Vcl (= 1.1.10)
+  - BxObjC/Common (1.1.10)
+  - BxObjC/Data (1.1.10):
+    - BxObjC/Common
+    - XMLDictionary (= 1.4)
+  - BxObjC/DB (1.1.10):
+    - BxObjC/Common
+  - BxObjC/Map (1.1.10):
+    - BxObjC/Common
+    - BxObjC/Data
+  - BxObjC/Vcl (1.1.10):
+    - BxObjC/Common
+    - BxObjC/Data
+  - MBProgressHUD (1.0.0)
   - VK-ios-sdk (1.4.4)
+  - XMLDictionary (1.4)
 
 DEPENDENCIES:
+  - BxObjC
+  - MBProgressHUD
   - VK-ios-sdk (= 1.4.4)
 
 SPEC CHECKSUMS:
+  BxObjC: a0cfa749733419c0fa1dd1524193c9f5234b89dd
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   VK-ios-sdk: 296c3be1bb45faf4d9f9a2ca69dcf6ec71d9d4df
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-PODFILE CHECKSUM: 542f53332318ae2a311da450a2463f15472ce894
+PODFILE CHECKSUM: b9f66e535033875c3902c69994eae8ce8f7e251c
 
 COCOAPODS: 1.1.0.rc.2

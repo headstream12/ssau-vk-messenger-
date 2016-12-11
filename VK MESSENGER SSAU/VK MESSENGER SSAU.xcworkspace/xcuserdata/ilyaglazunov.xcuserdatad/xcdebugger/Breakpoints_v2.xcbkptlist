@@ -19,28 +19,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VK MESSENGER SSAU/AuthController.m"
-            timestampString = "503095597.239322"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "-vkSdkAccessAuthorizationFinishedWithResult:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "VK MESSENGER SSAU/ChatListController.m"
-            timestampString = "503095970.544516"
+            timestampString = "503160162.889013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-filingChatVOWithCount:"
             landmarkType = "7">
             <Locations>
@@ -83,13 +67,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "VK MESSENGER SSAU/AuthController.m"
-            timestampString = "503095970.544516"
+            filePath = "VK MESSENGER SSAU/ChatVO.m"
+            timestampString = "503159512.394019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-vkSdkAccessAuthorizationFinishedWithResult:"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "+loadListDialogsWithCount:completionBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

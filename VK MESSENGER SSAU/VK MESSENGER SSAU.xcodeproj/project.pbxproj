@@ -15,6 +15,7 @@
 		B097C34E1DFBFD1100E58776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B097C34C1DFBFD1100E58776 /* LaunchScreen.storyboard */; };
 		B097C3591DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3581DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m */; };
 		B097C3641DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3631DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m */; };
+		B098AC631DFD33560045D59B /* MainUserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B098AC621DFD33560045D59B /* MainUserVO.m */; };
 		B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE01DFC08DE009FAE3C /* AuthController.m */; };
 		B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE31DFC49CF009FAE3C /* ChatListController.m */; };
 		B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */; };
@@ -57,6 +58,8 @@
 		B097C35F1DFBFD1200E58776 /* VK MESSENGER SSAUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VK MESSENGER SSAUUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B097C3631DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VK_MESSENGER_SSAUUITests.m; sourceTree = "<group>"; };
 		B097C3651DFBFD1200E58776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B098AC611DFD33560045D59B /* MainUserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainUserVO.h; sourceTree = "<group>"; };
+		B098AC621DFD33560045D59B /* MainUserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainUserVO.m; sourceTree = "<group>"; };
 		B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
 		B0F7FFE01DFC08DE009FAE3C /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
 		B0F7FFE21DFC49CF009FAE3C /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListController.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 			children = (
 				B0F7FFE61DFC4B7F009FAE3C /* ChatVO.h */,
 				B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */,
+				B098AC611DFD33560045D59B /* MainUserVO.h */,
+				B098AC621DFD33560045D59B /* MainUserVO.m */,
 			);
 			name = "Value Objects";
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 				B097C3401DFBFD1100E58776 /* main.m in Sources */,
 				B0F7FFED1DFC9CC8009FAE3C /* ChatCell.m in Sources */,
 				B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */,
+				B098AC631DFD33560045D59B /* MainUserVO.m in Sources */,
 				B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 #import "AuthController.h"
 #import <VK_ios_sdk/VKSdk.h>
 #import "ChatListController.h"
+#import "MainUserVO.h"
 
 
 @interface AuthController () <VKSdkDelegate, VKSdkUIDelegate>
@@ -51,6 +52,7 @@
         ChatListController *listController = [[ChatListController alloc] init];
         listController.chatVO = [[NSMutableArray alloc] init];
         [listController filingChatVOWithCount:20];
+        listController.mainUser = [MainUserVO getMainUser];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
         
         [self presentViewController:navController animated:YES completion:nil];
@@ -89,14 +91,5 @@
 {
     
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

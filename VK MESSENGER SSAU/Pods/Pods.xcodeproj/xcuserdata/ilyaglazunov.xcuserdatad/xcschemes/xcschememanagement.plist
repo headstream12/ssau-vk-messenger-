@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BxObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-VK MESSENGER SSAU.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,20 +29,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>XMLDictionary.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E2FC38340E610E2B990E917E5E103FC</key>
+		<key>09FE96790FD0E95F48554028134167FD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3F72AB2C8840FFA69CB61C2A8DD6AB24</key>
+		<key>8A97F7F9266F326FCA32A379F25D14B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB760DDA8F4B166D9CB5EA7BBC356675</key>
+		<key>8E23903EAC709557F0FC45C374C45D95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3F7E36CB3A5050F77EC56172DDB5889</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DBA6001481CEA0EBA031CC5C94508FAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE1D90E592E0C3042F778929E13C8BD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

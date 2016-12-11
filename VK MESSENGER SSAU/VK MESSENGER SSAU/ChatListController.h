@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "ChatVO.h"
+#import "MainUserVO.h"
 
 @interface ChatListController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray <ChatVO*> *chatVO;
+@property (strong, nonatomic) MainUserVO* mainUser;
 
 - (void)filingChatVOWithCount:(NSInteger)count;
 

@@ -10,14 +10,16 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^CompletionHandler)(NSArray *dialogs, BOOL success);
+typedef void(^Handler)(BOOL success);
+
 
 @interface ChatVO : NSObject
 
 @property (strong, nonatomic) NSString *nameString;
 @property (strong, nonatomic) NSString *timeString;
 @property (strong, nonatomic) NSString *messageString;
-@property (strong, nonatomic) UIImage *avatarReceiver;
-@property (strong, nonatomic) UIImage *avatarSender;
+@property (strong, nonatomic) UIImage *avatarDialog;
+@property (strong, nonatomic) UIImage *avatarMainUser;
 @property (assign, nonatomic) BOOL receiverIsOnline;
 @property (assign, nonatomic) BOOL isSending;
 

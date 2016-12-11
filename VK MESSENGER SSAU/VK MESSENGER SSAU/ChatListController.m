@@ -9,8 +9,11 @@
 #import "ChatListController.h"
 #import <VK_ios_sdk/VKSdk.h>
 #import "ChatCell.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface ChatListController ()
+
+@property (strong, nonatomic) MBProgressHUD *activityIndicator;
 
 @end
 
@@ -21,11 +24,13 @@ static NSString *cellIdentifier = @"cellIdentifier";
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    
     self.chatVO = [[NSMutableArray alloc] init];
     [self filingChatVOWithCount:20];
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     NSString *nibName = NSStringFromClass([ChatCell class]);
@@ -34,7 +39,17 @@ static NSString *cellIdentifier = @"cellIdentifier";
     [self.tableView registerNib:nibCell forCellReuseIdentifier:cellIdentifier];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 43.f;
+    self.tableView.estimatedRowHeight = 71.f;
+    self.navigationItem.title = self.mainUser.nameMainUser;
+    
+    self.activityIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:self.activityIndicator];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.activityIndicator show:YES];
 }
 
 #pragma mark - Table view data source
@@ -52,10 +67,24 @@ static NSString *cellIdentifier = @"cellIdentifier";
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     ChatVO *chatVO = self.chatVO[indexPath.row];
-    cell.messageLabel.text = chatVO.messageString;
-    cell.dateLabel.text = chatVO.timeString;
+    [self configureCell:cell withChatVO:chatVO];
     
     return cell;
+}
+
+- (void)configureCell:(ChatCell *)cell
+           withChatVO:(ChatVO *)chatVO
+{
+    cell.messageLabel.text = chatVO.messageString;
+    cell.dateLabel.text = chatVO.timeString;
+    cell.nameLabel.text = chatVO.nameString;
+    if (!chatVO.isSending) {
+        [cell.youLabel setHidden:YES];
+        cell.messageConstraint.constant = 13;
+    }
+    cell.avatarView.image = chatVO.avatarDialog;
+    cell.avatarView.layer.cornerRadius = 30;
+    cell.avatarView.clipsToBounds = YES;
 }
 
 - (void)filingChatVOWithCount:(NSInteger)count
@@ -66,6 +95,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
         if (success) {
             [weakself.chatVO addObjectsFromArray:resultArray];
             [weakself.tableView reloadData];
+            [self.activityIndicator hide:YES];
         }
     }];
 }

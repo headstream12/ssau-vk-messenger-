@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AB760DDA8F4B166D9CB5EA7BBC356675"
+               BlueprintIdentifier = "8E23903EAC709557F0FC45C374C45D95"
                BuildableName = "VK_ios_sdk.framework"
                BlueprintName = "VK-ios-sdk"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AB760DDA8F4B166D9CB5EA7BBC356675"
+            BlueprintIdentifier = "8E23903EAC709557F0FC45C374C45D95"
             BuildableName = "VK_ios_sdk.framework"
             BlueprintName = "VK-ios-sdk"
             ReferencedContainer = "container:Pods.xcodeproj">

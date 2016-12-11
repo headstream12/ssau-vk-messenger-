@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BxLoadedImageViewItem.h"
 
 @interface ChatCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarView;
+@property (weak, nonatomic) IBOutlet UILabel *youLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageConstraint;
 
 @end

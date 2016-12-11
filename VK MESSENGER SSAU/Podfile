@@ -3,4 +3,6 @@ use_frameworks!
 
 target 'VK MESSENGER SSAU' do
     pod 'VK-ios-sdk', '1.4.4'
+    pod 'BxObjC'
+    pod 'MBProgressHUD'
 end
