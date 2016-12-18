@@ -58,6 +58,8 @@
             NSLog(@"%@", chatVO.timeString);
             
             NSNumber *userID = message[@"user_id"];
+            
+            chatVO.userID = message[@"user_id"];
             [userIDs addObject:userID];
             
             [ChatVO setInfoUserWithUserID:userID andChatVO:chatVO withCompletionHandler:^(BOOL success) {

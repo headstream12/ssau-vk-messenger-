@@ -10,6 +10,7 @@
 #import <VK_ios_sdk/VKSdk.h>
 #import "ChatCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "ChatScreenController.h"
 
 @interface ChatListController ()
 
@@ -85,6 +86,17 @@ static NSString *cellIdentifier = @"cellIdentifier";
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ChatScreenController *chatScreenController = [[ChatScreenController alloc] init];
+    ChatVO *chatVO = self.chatVO[indexPath.row];
+    chatScreenController.userID = chatVO.userID;
+    NSLog(@"user id = %d");
+    chatScreenController.messageVO = [[NSMutableArray alloc] init];
+    [chatScreenController filingMessagesVOWithCount:20 andOffset:0 userID:chatVO.userID needRemove:NO];
+    [self.navigationController pushViewController:chatScreenController animated:YES];
 }
 
 - (void)loadPage
@@ -182,7 +194,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
     
     __weak ChatListController *weakself = self;
     self.isEndLoad = NO;
-    [ChatVO loadListDialogsWithCount:20 andOffset:offset completionBlock:^(NSArray *resultArray, BOOL success){
+    [ChatVO loadListDialogsWithCount:count andOffset:offset completionBlock:^(NSArray *resultArray, BOOL success){
 
         if (success) {
             if (needRemove) {

@@ -16,6 +16,12 @@
 		B097C3591DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3581DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m */; };
 		B097C3641DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3631DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m */; };
 		B098AC631DFD33560045D59B /* MainUserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B098AC621DFD33560045D59B /* MainUserVO.m */; };
+		B0D21AF61E06BA2500F5A4E5 /* ChatScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D21AF51E06BA2500F5A4E5 /* ChatScreenController.m */; };
+		B0D21AFA1E06BA5C00F5A4E5 /* AuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D21AF81E06BA5C00F5A4E5 /* AuthorCell.m */; };
+		B0D21AFB1E06BA5D00F5A4E5 /* AuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D21AF91E06BA5C00F5A4E5 /* AuthorCell.xib */; };
+		B0D21AFF1E06BA6D00F5A4E5 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D21AFD1E06BA6D00F5A4E5 /* FriendCell.m */; };
+		B0D21B001E06BA6D00F5A4E5 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D21AFE1E06BA6D00F5A4E5 /* FriendCell.xib */; };
+		B0D21B031E06C65000F5A4E5 /* MessageVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D21B021E06C65000F5A4E5 /* MessageVO.m */; };
 		B0E3A61A1DFDCECF0083A00F /* mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E3A6191DFDCECF0083A00F /* mobile.png */; };
 		B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE01DFC08DE009FAE3C /* AuthController.m */; };
 		B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE31DFC49CF009FAE3C /* ChatListController.m */; };
@@ -61,6 +67,16 @@
 		B097C3651DFBFD1200E58776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B098AC611DFD33560045D59B /* MainUserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainUserVO.h; sourceTree = "<group>"; };
 		B098AC621DFD33560045D59B /* MainUserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainUserVO.m; sourceTree = "<group>"; };
+		B0D21AF41E06BA2500F5A4E5 /* ChatScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatScreenController.h; sourceTree = "<group>"; };
+		B0D21AF51E06BA2500F5A4E5 /* ChatScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatScreenController.m; sourceTree = "<group>"; };
+		B0D21AF71E06BA5C00F5A4E5 /* AuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorCell.h; sourceTree = "<group>"; };
+		B0D21AF81E06BA5C00F5A4E5 /* AuthorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorCell.m; sourceTree = "<group>"; };
+		B0D21AF91E06BA5C00F5A4E5 /* AuthorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorCell.xib; sourceTree = "<group>"; };
+		B0D21AFC1E06BA6D00F5A4E5 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		B0D21AFD1E06BA6D00F5A4E5 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		B0D21AFE1E06BA6D00F5A4E5 /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
+		B0D21B011E06C65000F5A4E5 /* MessageVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageVO.h; sourceTree = "<group>"; };
+		B0D21B021E06C65000F5A4E5 /* MessageVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageVO.m; sourceTree = "<group>"; };
 		B0E3A6191DFDCECF0083A00F /* mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mobile.png; path = ../../../Downloads/mobile.png; sourceTree = "<group>"; };
 		B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
 		B0F7FFE01DFC08DE009FAE3C /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
@@ -150,6 +166,7 @@
 				B097C3421DFBFD1100E58776 /* AppDelegate.m */,
 				B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */,
 				B0F7FFE01DFC08DE009FAE3C /* AuthController.m */,
+				B0D21AF31E06B9E500F5A4E5 /* ChatController */,
 				B0E3A6181DFDCEC50083A00F /* Images */,
 				B0F7FFE91DFC9C9E009FAE3C /* ListController */,
 				B097C3471DFBFD1100E58776 /* Main.storyboard */,
@@ -187,6 +204,21 @@
 			path = "VK MESSENGER SSAUUITests";
 			sourceTree = "<group>";
 		};
+		B0D21AF31E06B9E500F5A4E5 /* ChatController */ = {
+			isa = PBXGroup;
+			children = (
+				B0D21AF41E06BA2500F5A4E5 /* ChatScreenController.h */,
+				B0D21AF51E06BA2500F5A4E5 /* ChatScreenController.m */,
+				B0D21AF71E06BA5C00F5A4E5 /* AuthorCell.h */,
+				B0D21AF81E06BA5C00F5A4E5 /* AuthorCell.m */,
+				B0D21AF91E06BA5C00F5A4E5 /* AuthorCell.xib */,
+				B0D21AFC1E06BA6D00F5A4E5 /* FriendCell.h */,
+				B0D21AFD1E06BA6D00F5A4E5 /* FriendCell.m */,
+				B0D21AFE1E06BA6D00F5A4E5 /* FriendCell.xib */,
+			);
+			name = ChatController;
+			sourceTree = "<group>";
+		};
 		B0E3A6181DFDCEC50083A00F /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +234,8 @@
 				B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */,
 				B098AC611DFD33560045D59B /* MainUserVO.h */,
 				B098AC621DFD33560045D59B /* MainUserVO.m */,
+				B0D21B011E06C65000F5A4E5 /* MessageVO.h */,
+				B0D21B021E06C65000F5A4E5 /* MessageVO.m */,
 			);
 			name = "Value Objects";
 			sourceTree = "<group>";
@@ -332,6 +366,8 @@
 			files = (
 				B097C34E1DFBFD1100E58776 /* LaunchScreen.storyboard in Resources */,
 				B0F7FFEE1DFC9CC8009FAE3C /* ChatCell.xib in Resources */,
+				B0D21AFB1E06BA5D00F5A4E5 /* AuthorCell.xib in Resources */,
+				B0D21B001E06BA6D00F5A4E5 /* FriendCell.xib in Resources */,
 				B097C34B1DFBFD1100E58776 /* Assets.xcassets in Resources */,
 				B097C3491DFBFD1100E58776 /* Main.storyboard in Resources */,
 				B0E3A61A1DFDCECF0083A00F /* mobile.png in Resources */,
@@ -409,9 +445,13 @@
 			files = (
 				B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */,
 				B097C3431DFBFD1100E58776 /* AppDelegate.m in Sources */,
+				B0D21B031E06C65000F5A4E5 /* MessageVO.m in Sources */,
 				B097C3401DFBFD1100E58776 /* main.m in Sources */,
 				B0F7FFED1DFC9CC8009FAE3C /* ChatCell.m in Sources */,
 				B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */,
+				B0D21AF61E06BA2500F5A4E5 /* ChatScreenController.m in Sources */,
+				B0D21AFA1E06BA5C00F5A4E5 /* AuthorCell.m in Sources */,
+				B0D21AFF1E06BA6D00F5A4E5 /* FriendCell.m in Sources */,
 				B098AC631DFD33560045D59B /* MainUserVO.m in Sources */,
 				B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */,
 			);

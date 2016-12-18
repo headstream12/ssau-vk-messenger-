@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VK MESSENGER SSAU/ChatListController.m"
-            timestampString = "503755940.134944"
+            timestampString = "503764692.709667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "-filingChatVOWithCount:andOffset:needRemove:"
             landmarkType = "7">
             <Locations>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VK MESSENGER SSAU/ChatListController.m"
-            timestampString = "503754102.520962"
+            timestampString = "503764692.709667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "-configureCell:withChatVO:"
             landmarkType = "7">
          </BreakpointContent>
