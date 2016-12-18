@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSMutableArray <ChatVO*> *chatVO;
 @property (strong, nonatomic) MainUserVO* mainUser;
 
-- (void)filingChatVOWithCount:(NSInteger)count;
-
+- (void)filingChatVOWithCount:(NSUInteger)count
+                    andOffset:(NSUInteger)offset
+                   needRemove:(BOOL)needRemove;
 @end

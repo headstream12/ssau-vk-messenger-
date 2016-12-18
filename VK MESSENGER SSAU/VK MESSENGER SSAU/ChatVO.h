@@ -27,7 +27,8 @@ typedef void(^Handler)(BOOL success);
 
 
 
-+ (void)loadListDialogsWithCount:(NSInteger)count
++ (void)loadListDialogsWithCount:(NSUInteger)count
+                       andOffset:(NSUInteger)offset
                  completionBlock:(CompletionHandler)completionHandler;
 
 @end

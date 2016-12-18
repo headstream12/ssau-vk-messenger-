@@ -14,6 +14,7 @@
 @interface ChatListController ()
 
 @property (strong, nonatomic) MBProgressHUD *activityIndicator;
+@property (assign, nonatomic) BOOL isEndLoad;
 
 @end
 
@@ -26,7 +27,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
     
     
     self.chatVO = [[NSMutableArray alloc] init];
-    [self filingChatVOWithCount:20];
+    [self filingChatVOWithCount:20 andOffset:0 needRemove:NO];
 }
 
 - (void)viewDidLoad
@@ -46,12 +47,20 @@ static NSString *cellIdentifier = @"cellIdentifier";
     
     self.activityIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
     [self.navigationController.view addSubview:self.activityIndicator];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshBegan) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.activityIndicator show:YES];
+    
+    if (self.isEndLoad) {
+        [self filingChatVOWithCount:20 andOffset:self.chatVO.count needRemove:NO];
+    }
 }
 
 #pragma mark - Table view data source
@@ -71,7 +80,21 @@ static NSString *cellIdentifier = @"cellIdentifier";
     ChatVO *chatVO = self.chatVO[indexPath.row];
     [self configureCell:cell withChatVO:chatVO];
     
+    if (indexPath.row == self.chatVO.count - 1) {
+        [self loadPage];
+    }
+    
     return cell;
+}
+
+- (void)loadPage
+{
+    NSInteger offset = self.chatVO.count;
+    
+    if (self.isEndLoad) {
+        self.isEndLoad = NO;
+        [self filingChatVOWithCount:20 andOffset:offset needRemove:NO];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,13 +102,13 @@ static NSString *cellIdentifier = @"cellIdentifier";
     ChatVO *chatVO = self.chatVO[indexPath.row];
     if (!chatVO.isSending) {
         [cell.youLabel setHidden:YES];
-        cell.messageConstraint.constant = 8;
+        cell.messageConstraint.constant = 10;
     } else {
         [cell.youLabel setHidden:NO];
         cell.messageConstraint.constant = 37;
     }
     cell.avatarView.image = chatVO.avatarDialog;
-    cell.avatarView.layer.cornerRadius = 29.f;
+    cell.avatarView.layer.cornerRadius = 35.f;
     cell.avatarView.clipsToBounds = YES;
     UIView *backView = [[UIView alloc] init];
     
@@ -146,16 +169,31 @@ static NSString *cellIdentifier = @"cellIdentifier";
 //    [cell setBackgroundView:backView];
 }
 
-- (void)filingChatVOWithCount:(NSInteger)count
+- (void)refreshBegan
+{
+    [self filingChatVOWithCount:20 andOffset:0 needRemove:YES];
+}
+
+- (void)filingChatVOWithCount:(NSUInteger)count
+                    andOffset:(NSUInteger)offset
+                   needRemove:(BOOL)needRemove
 {
     [self.activityIndicator show:YES];
+    
     __weak ChatListController *weakself = self;
-    [ChatVO loadListDialogsWithCount:20 completionBlock:^(NSArray *resultArray, BOOL success){
+    self.isEndLoad = NO;
+    [ChatVO loadListDialogsWithCount:20 andOffset:offset completionBlock:^(NSArray *resultArray, BOOL success){
 
         if (success) {
+            if (needRemove) {
+                [weakself.chatVO removeAllObjects];
+            }
             [weakself.chatVO addObjectsFromArray:resultArray];
             [weakself.tableView reloadData];
-            [self.activityIndicator hide:YES];
+            [weakself.activityIndicator hide:YES];
+            weakself.isEndLoad = YES;
+            [weakself.refreshControl endRefreshing];
+
         }
     }];
 }

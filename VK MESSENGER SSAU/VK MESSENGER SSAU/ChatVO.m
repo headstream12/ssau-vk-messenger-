@@ -16,14 +16,17 @@
 
 @implementation ChatVO
 
-+ (void)loadListDialogsWithCount:(NSInteger)count
++ (void)loadListDialogsWithCount:(NSUInteger)count
+                       andOffset:(NSUInteger)offset
                  completionBlock:(CompletionHandler)completionHandler
 {
     MainUserVO *mainUser = [MainUserVO getMainUser];
     
-    NSNumber *intNumberCount = [NSNumber numberWithInteger:count];
+    NSNumber *intNumberCount = [NSNumber numberWithUnsignedInteger:count];
+    NSNumber *intNumberOffset = [NSNumber numberWithUnsignedInteger:offset];
     NSDictionary *parameters = @{@"count":intNumberCount,
-                                 @"preview_length":@50};
+                                 @"preview_length":@50,
+                                 @"offset":intNumberOffset};
     
     VKRequest * requestDialogs = [VKRequest requestWithMethod:@"messages.getDialogs" parameters:parameters];
     
@@ -44,7 +47,7 @@
             NSNumber *timeInterval = message[@"date"];
             NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval.doubleValue];
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            [dateFormatter setDateFormat:@"hh:mm dd mm"];
+            [dateFormatter setDateFormat:@"hh:mm dd MMM"];
             NSString *stringDate = [dateFormatter stringFromDate:date];
             chatVO.timeString = stringDate;
             NSNumber *isSendingNumber = message[@"out"];
@@ -66,8 +69,6 @@
                 }
             }];
         }
-        
-        
     } errorBlock:^(NSError * error) {
         if (error.code != VK_API_ERROR) {
             [error.vkError.request repeat];
