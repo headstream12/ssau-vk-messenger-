@@ -43,9 +43,14 @@
             
             NSNumber *timeInterval = message[@"date"];
             NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval.doubleValue];
-            NSString *stringDate = date.description;
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"hh:mm dd mm"];
+            NSString *stringDate = [dateFormatter stringFromDate:date];
             chatVO.timeString = stringDate;
-            chatVO.isSending = (BOOL)message[@"out"];
+            NSNumber *isSendingNumber = message[@"out"];
+            chatVO.isSending = isSendingNumber.boolValue;
+            NSNumber *readStateNumber = message[@"read_state"];
+            chatVO.readState = readStateNumber.boolValue;
             NSLog(@"%d", chatVO.isSending);
             NSLog(@"%@", chatVO.timeString);
             
@@ -79,7 +84,7 @@
         withCompletionHandler:(Handler)handler;
 {
     VKRequest *requestUser = [[VKApi users] get:@{@"user_ids":userID,
-                                               VK_API_FIELDS : @"photo_200"}];
+                                               VK_API_FIELDS : @[@"photo_200",@"online",@"has_mobile"]}];
     [requestUser executeWithResultBlock:^(VKResponse *response) {
         NSString *firstNameString = (NSString*)[[response.json firstObject] objectForKey:@"first_name"];
         NSString *lastNameString = (NSString*)[[response.json firstObject] objectForKey:@"last_name"];
@@ -89,6 +94,10 @@
         NSData *imageData = [NSData dataWithContentsOfURL:url];
         UIImage *avatarImage = [UIImage imageWithData:imageData];
         chatVO.avatarDialog = avatarImage;
+        NSNumber *isOnlineNumber = [[response.json firstObject] objectForKey:@"online"];
+        chatVO.isOnline = isOnlineNumber.boolValue;
+        NSNumber *isMobileNumber = [[response.json firstObject] objectForKey:@"has_mobile"];
+        chatVO.isMobile = isMobileNumber.boolValue;
         handler(YES);
         
     } errorBlock:^(NSError *error) {

@@ -16,6 +16,7 @@
 		B097C3591DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3581DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m */; };
 		B097C3641DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3631DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m */; };
 		B098AC631DFD33560045D59B /* MainUserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B098AC621DFD33560045D59B /* MainUserVO.m */; };
+		B0E3A61A1DFDCECF0083A00F /* mobile.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E3A6191DFDCECF0083A00F /* mobile.png */; };
 		B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE01DFC08DE009FAE3C /* AuthController.m */; };
 		B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE31DFC49CF009FAE3C /* ChatListController.m */; };
 		B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B0F7FFE71DFC4B7F009FAE3C /* ChatVO.m */; };
@@ -60,6 +61,7 @@
 		B097C3651DFBFD1200E58776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B098AC611DFD33560045D59B /* MainUserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainUserVO.h; sourceTree = "<group>"; };
 		B098AC621DFD33560045D59B /* MainUserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainUserVO.m; sourceTree = "<group>"; };
+		B0E3A6191DFDCECF0083A00F /* mobile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mobile.png; path = ../../../Downloads/mobile.png; sourceTree = "<group>"; };
 		B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthController.h; sourceTree = "<group>"; };
 		B0F7FFE01DFC08DE009FAE3C /* AuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthController.m; sourceTree = "<group>"; };
 		B0F7FFE21DFC49CF009FAE3C /* ChatListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListController.h; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				B097C3421DFBFD1100E58776 /* AppDelegate.m */,
 				B0F7FFDF1DFC08DE009FAE3C /* AuthController.h */,
 				B0F7FFE01DFC08DE009FAE3C /* AuthController.m */,
+				B0E3A6181DFDCEC50083A00F /* Images */,
 				B0F7FFE91DFC9C9E009FAE3C /* ListController */,
 				B097C3471DFBFD1100E58776 /* Main.storyboard */,
 				B097C34A1DFBFD1100E58776 /* Assets.xcassets */,
@@ -182,6 +185,14 @@
 				B097C3651DFBFD1200E58776 /* Info.plist */,
 			);
 			path = "VK MESSENGER SSAUUITests";
+			sourceTree = "<group>";
+		};
+		B0E3A6181DFDCEC50083A00F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B0E3A6191DFDCECF0083A00F /* mobile.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		B0F7FFE51DFC4A58009FAE3C /* Value Objects */ = {
@@ -323,6 +334,7 @@
 				B0F7FFEE1DFC9CC8009FAE3C /* ChatCell.xib in Resources */,
 				B097C34B1DFBFD1100E58776 /* Assets.xcassets in Resources */,
 				B097C3491DFBFD1100E58776 /* Main.storyboard in Resources */,
+				B0E3A61A1DFDCECF0083A00F /* mobile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

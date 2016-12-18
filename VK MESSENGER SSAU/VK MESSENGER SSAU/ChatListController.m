@@ -38,6 +38,8 @@ static NSString *cellIdentifier = @"cellIdentifier";
     
     [self.tableView registerNib:nibCell forCellReuseIdentifier:cellIdentifier];
     
+    [self.tableView setBackgroundColor:[UIColor whiteColor]];
+
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 71.f;
     self.navigationItem.title = self.mainUser.nameMainUser;
@@ -72,23 +74,81 @@ static NSString *cellIdentifier = @"cellIdentifier";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ChatVO *chatVO = self.chatVO[indexPath.row];
+    if (!chatVO.isSending) {
+        [cell.youLabel setHidden:YES];
+        cell.messageConstraint.constant = 8;
+    } else {
+        [cell.youLabel setHidden:NO];
+        cell.messageConstraint.constant = 37;
+    }
+    cell.avatarView.image = chatVO.avatarDialog;
+    cell.avatarView.layer.cornerRadius = 29.f;
+    cell.avatarView.clipsToBounds = YES;
+    UIView *backView = [[UIView alloc] init];
+    
+    if (!chatVO.readState && !chatVO.isSending) {
+        [cell.readStateView setBackgroundColor:[UIColor clearColor]];
+        [backView setBackgroundColor:[UIColor colorWithHex:0xE5EBF0]];//E7EDF3
+    }
+    if (chatVO.readState) {
+        [backView setBackgroundColor:[UIColor whiteColor]];
+        [cell.readStateView setBackgroundColor:[UIColor whiteColor]];
+    }
+    if (!chatVO.readState && chatVO.isSending) {
+        [cell.readStateView setBackgroundColor:[UIColor colorWithHex:0xE5EBF0]];
+        [backView setBackgroundColor:[UIColor whiteColor]];
+    }
+    [cell setBackgroundView:backView];
+    
+    if (chatVO.isOnline && chatVO.isMobile) {
+        [cell.onlineImage setHidden:NO];
+        cell.onlineImage.image = [UIImage imageNamed:@"mobile.png"];
+    }
+    if (!chatVO.isOnline) {
+        [cell.onlineImage setHidden:YES];
+    }
+    
+}
+
 - (void)configureCell:(ChatCell *)cell
            withChatVO:(ChatVO *)chatVO
 {
     cell.messageLabel.text = chatVO.messageString;
     cell.dateLabel.text = chatVO.timeString;
     cell.nameLabel.text = chatVO.nameString;
-    if (!chatVO.isSending) {
-        [cell.youLabel setHidden:YES];
-        cell.messageConstraint.constant = 13;
-    }
-    cell.avatarView.image = chatVO.avatarDialog;
-    cell.avatarView.layer.cornerRadius = 30;
-    cell.avatarView.clipsToBounds = YES;
+//    if (!chatVO.isSending) {
+//        [cell.youLabel setHidden:YES];
+//        cell.messageConstraint.constant = 8;
+//    } else {
+//        [cell.youLabel setHidden:NO];
+//        cell.messageConstraint.constant = 37;
+//    }
+//    cell.avatarView.image = chatVO.avatarDialog;
+//    cell.avatarView.layer.cornerRadius = 29.f;
+//    cell.avatarView.clipsToBounds = YES;
+//    UIView *backView = [[UIView alloc] init];
+//
+//    if (!chatVO.readState && !chatVO.isSending) {
+//        [cell.readStateView setBackgroundColor:[UIColor clearColor]];
+//        [backView setBackgroundColor:[UIColor colorWithHex:0xE5EBF0]];//E7EDF3
+//    }
+//    if (chatVO.readState) {
+//        [backView setBackgroundColor:[UIColor whiteColor]];
+//        [cell.readStateView setBackgroundColor:[UIColor whiteColor]];
+//    }
+//    if (!chatVO.readState && chatVO.isSending) {
+//        [cell.readStateView setBackgroundColor:[UIColor colorWithHex:0xE5EBF0]];
+//        [backView setBackgroundColor:[UIColor whiteColor]];
+//    }
+//    [cell setBackgroundView:backView];
 }
 
 - (void)filingChatVOWithCount:(NSInteger)count
 {
+    [self.activityIndicator show:YES];
     __weak ChatListController *weakself = self;
     [ChatVO loadListDialogsWithCount:20 completionBlock:^(NSArray *resultArray, BOOL success){
 

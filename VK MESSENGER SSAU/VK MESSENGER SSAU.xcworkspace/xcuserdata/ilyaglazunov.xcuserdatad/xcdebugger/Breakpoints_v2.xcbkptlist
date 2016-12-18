@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VK MESSENGER SSAU/ChatListController.m"
-            timestampString = "503160162.889013"
+            timestampString = "503174218.514974"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "-filingChatVOWithCount:"
             landmarkType = "7">
             <Locations>
@@ -68,12 +68,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "VK MESSENGER SSAU/ChatVO.m"
-            timestampString = "503159512.394019"
+            timestampString = "503749136.458296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "+loadListDialogsWithCount:completionBlock:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "VK MESSENGER SSAU/ChatListController.m"
+            timestampString = "503173940.156182"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-configureCell:withChatVO:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,8 +20,12 @@ typedef void(^Handler)(BOOL success);
 @property (strong, nonatomic) NSString *messageString;
 @property (strong, nonatomic) UIImage *avatarDialog;
 @property (strong, nonatomic) UIImage *avatarMainUser;
-@property (assign, nonatomic) BOOL receiverIsOnline;
+@property (assign, nonatomic) BOOL isOnline;
 @property (assign, nonatomic) BOOL isSending;
+@property (assign, nonatomic) BOOL readState;
+@property (assign, nonatomic) BOOL isMobile;
+
+
 
 + (void)loadListDialogsWithCount:(NSInteger)count
                  completionBlock:(CompletionHandler)completionHandler;

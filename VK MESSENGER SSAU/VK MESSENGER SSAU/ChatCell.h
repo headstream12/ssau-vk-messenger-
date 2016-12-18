@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarView;
 @property (weak, nonatomic) IBOutlet UILabel *youLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageConstraint;
+@property (weak, nonatomic) IBOutlet UIView *readStateView;
+@property (weak, nonatomic) IBOutlet UIImageView *onlineImage;
 
 @end
