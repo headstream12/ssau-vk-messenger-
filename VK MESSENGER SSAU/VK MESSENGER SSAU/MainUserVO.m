@@ -11,7 +11,7 @@
 
 @implementation MainUserVO
 
-+ (MainUserVO *)getMainUser
++ (MainUserVO *)getMainUser:(CompletionHandlerMainUser)completionHandler
 {
     MainUserVO *user = [[MainUserVO alloc] init];
     VKRequest *requestMainUser = [[VKApi users] get:@{VK_API_FIELDS : @"photo_50"}];
@@ -25,6 +25,9 @@
         NSString *firstNameString = (NSString*)[[response.json firstObject] objectForKey:@"first_name"];
         NSString *lastNameString = (NSString*)[[response.json firstObject] objectForKey:@"last_name"];
         user.nameMainUser = [NSString stringWithFormat:@"%@ %@", firstNameString, lastNameString];
+        if (completionHandler) {
+            completionHandler(YES);
+        }
 
     } errorBlock:^(NSError *error) {
         if (error.code != VK_API_ERROR) {
@@ -32,6 +35,9 @@
         }
         else {
             NSLog(@"VK error: %@", error);
+            if (completionHandler) {
+                completionHandler(NO);
+            }
         }
     }];
     return user;

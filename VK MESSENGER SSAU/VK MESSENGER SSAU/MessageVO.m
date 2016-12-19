@@ -25,7 +25,7 @@
                                  @"count":intNumberCount,
                                @"user_id":userID,
                                @"peer_id":userID,
-                                   @"rev":@1 };
+                                   @"rev":@0 };
     
     VKRequest * requestDialogs = [VKRequest requestWithMethod:@"messages.getHistory" parameters:parameters];
     
@@ -46,9 +46,10 @@
             messageVO.readState = readStateNumber.boolValue;
             NSLog(@"message:= %@ ", messageVO.message);
             [dialogsArray addObject:messageVO];
-            if (completionHandler) {
-                completionHandler(dialogsArray, YES);
-            }
+            
+        }
+        if (completionHandler) {
+            completionHandler(dialogsArray, YES);
         }
     } errorBlock:^(NSError *error) {
         if (completionHandler) {

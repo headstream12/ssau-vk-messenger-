@@ -52,10 +52,14 @@
         ChatListController *listController = [[ChatListController alloc] init];
         listController.chatVO = [[NSMutableArray alloc] init];
         [listController filingChatVOWithCount:20 andOffset:0 needRemove:NO];
-        listController.mainUser = [MainUserVO getMainUser];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
+        listController.mainUser = [MainUserVO getMainUser:^(BOOL success) {
+            if (success) {
+                UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
+                
+                [self presentViewController:navController animated:YES completion:nil];
+            }
+        }];
         
-        [self presentViewController:navController animated:YES completion:nil];
         
         
     } errorBlock:^(NSError * error) {

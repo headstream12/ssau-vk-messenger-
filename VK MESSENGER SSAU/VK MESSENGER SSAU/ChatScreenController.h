@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "MessageVO.h"
+#import "MainUserVO.h"
 
 @interface ChatScreenController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray <MessageVO*> *messageVO;
+@property (strong, nonatomic) MainUserVO* mainUser;
 
-@property (assign, nonatomic) NSString *userID;
+@property (strong, nonatomic) NSString *userID;
+@property (strong, nonatomic) UIImage *authorAvatar;
+@property (strong, nonatomic) UIImage *friendAvatar;
+
 
 - (void)filingMessagesVOWithCount:(NSUInteger)count
                         andOffset:(NSUInteger)offset

@@ -11,9 +11,11 @@
 
 @interface MainUserVO : NSObject
 
+typedef void(^CompletionHandlerMainUser)(BOOL success);
+
 @property (strong, nonatomic) UIImage *avatarMainUser;
 @property (strong, nonatomic) NSString *nameMainUser;
 
-+ (MainUserVO *)getMainUser;
++ (MainUserVO *)getMainUser:(CompletionHandlerMainUser)completionHandler;
 
 @end
