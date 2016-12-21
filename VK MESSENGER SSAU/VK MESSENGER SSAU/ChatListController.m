@@ -90,14 +90,26 @@ static NSString *cellIdentifier = @"cellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChatScreenController *chatScreenController = [[ChatScreenController alloc] init];
+//    ChatScreenController *chatScreenController = [[ChatScreenController alloc] init];
     ChatVO *chatVO = self.chatVO[indexPath.row];
-    chatScreenController.userID = chatVO.userID;
-    chatScreenController.friendAvatar = chatVO.avatarDialog;
-    chatScreenController.authorAvatar = chatVO.avatarMainUser;
-    chatScreenController.messageVO = [[NSMutableArray alloc] init];
-    [chatScreenController filingMessagesVOWithCount:20 andOffset:0 userID:chatVO.userID needRemove:NO];
-    [self.navigationController pushViewController:chatScreenController animated:YES];
+//    chatScreenController.userID = chatVO.userID;
+//    chatScreenController.friendAvatar = chatVO.avatarDialog;
+//    chatScreenController.authorAvatar = chatVO.avatarMainUser;
+//    chatScreenController.messageVO = [[NSMutableArray alloc] init];
+//    [chatScreenController filingMessagesVOWithCount:20 andOffset:0 userID:chatVO.userID needRemove:NO];
+//    [self.navigationController pushViewController:chatScreenController animated:YES];
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChatScreenController *controller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ChatScreenController"];
+    controller.userID = chatVO.userID;
+    controller.friendAvatar = chatVO.avatarDialog;
+    controller.authorAvatar = chatVO.avatarMainUser;
+    controller.messageVO = [[NSMutableArray alloc] init];
+    [controller filingMessagesVOWithCount:20 andOffset:0 userID:controller.userID needRemove:NO CompletionHandler:^(BOOL success) {
+        if (success) {
+        [self presentViewController:controller animated:YES completion:nil];
+        }
+    }];
+    
 }
 
 - (void)loadPage

@@ -15,6 +15,8 @@
 
 @property (strong, nonatomic) MBProgressHUD *activityIndicator;
 @property (assign, nonatomic) BOOL isEndLoad;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -33,6 +35,9 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
     NSString *nibNameFriend = NSStringFromClass([FriendCell class]);
     UINib *nibCellFriend = [UINib nibWithNibName:nibNameFriend bundle:[NSBundle mainBundle]];
 
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    
     [self.tableView registerNib:nibCell forCellReuseIdentifier:cellAuthorIdentifier];
     [self.tableView registerNib:nibCellFriend forCellReuseIdentifier:cellFriendIdentifier];
     
@@ -42,20 +47,24 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
 
     self.tableView.transform = CGAffineTransformMakeRotation(-M_PI);
     
-    self.activityIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:self.activityIndicator];
+
+//    self.activityIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+//    [self.navigationController.view addSubview:self.activityIndicator];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.activityIndicator show:YES];
+   // [self.activityIndicator show:YES];
     
-    if (self.isEndLoad) {
-        [self filingMessagesVOWithCount:20 andOffset:0 userID:self.userID needRemove:NO];
-    }
+//    if (self.isEndLoad) {
+//        [self filingMessagesVOWithCount:20 andOffset:0 userID:self.userID needRemove:NO CompletionHandler:nil];
+//    }
 }
 #pragma mark - Table view data source
+- (IBAction)sendButtonAction:(UIButton *)sender {
+    
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -88,9 +97,10 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
                         andOffset:(NSUInteger)offset
                            userID:(NSString *)userID
                        needRemove:(BOOL)needRemove
+                CompletionHandler:(Handler)completionHandler
 {
     __weak ChatScreenController *weakself = self;
-    [self.activityIndicator show:YES];
+   // [self.activityIndicator show:YES];
 
     self.isEndLoad = NO;
     [MessageVO loadListMessagesWithCount:count andOffset:offset userID:userID completionBlock:^(NSArray *messages, BOOL success) {
@@ -100,9 +110,11 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
             }
             [weakself.messageVO addObjectsFromArray:messages];
             [weakself.tableView reloadData];
-            self.isEndLoad = YES;
-            [self.activityIndicator hide:YES];
-
+            weakself.isEndLoad = YES;
+            //[self.activityIndicator hide:YES];
+            if (completionHandler) {
+                completionHandler(YES);
+            }
         }
     }];
 }

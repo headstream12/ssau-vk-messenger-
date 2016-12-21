@@ -10,7 +10,9 @@
 #import "MessageVO.h"
 #import "MainUserVO.h"
 
-@interface ChatScreenController : UITableViewController
+typedef void(^Handler)(BOOL success);
+
+@interface ChatScreenController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (strong, nonatomic) NSMutableArray <MessageVO*> *messageVO;
 @property (strong, nonatomic) MainUserVO* mainUser;
@@ -23,6 +25,7 @@
 - (void)filingMessagesVOWithCount:(NSUInteger)count
                         andOffset:(NSUInteger)offset
                            userID:(NSString *)userID
-                       needRemove:(BOOL)needRemove;
+                       needRemove:(BOOL)needRemove
+                CompletionHandler:(Handler)completionHandler;
 
 @end
