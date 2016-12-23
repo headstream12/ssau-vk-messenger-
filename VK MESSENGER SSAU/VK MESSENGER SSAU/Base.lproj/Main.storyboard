@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -111,37 +111,50 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pwo-vf-js8">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ban-4k-so3">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-bv-cqm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTU-7s-mIw">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ban-4k-so3">
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCl-bv-cqm">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="w0s-2Z-F5R"/>
+                                        </constraints>
+                                        <state key="normal" title="SEND"/>
+                                        <connections>
+                                            <action selector="sendButtonAction:" destination="6Q7-qw-8q9" eventType="touchUpInside" id="jP5-9y-ZaQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="w0s-2Z-F5R"/>
+                                    <constraint firstAttribute="bottom" secondItem="ban-4k-so3" secondAttribute="bottom" constant="6" id="BQK-UB-55d"/>
+                                    <constraint firstItem="kCl-bv-cqm" firstAttribute="top" secondItem="VTU-7s-mIw" secondAttribute="top" constant="7" id="CRg-Fi-Sga"/>
+                                    <constraint firstItem="ban-4k-so3" firstAttribute="leading" secondItem="VTU-7s-mIw" secondAttribute="leading" constant="20" id="TbP-ta-Jru"/>
+                                    <constraint firstAttribute="bottom" secondItem="kCl-bv-cqm" secondAttribute="bottom" constant="6" id="WKP-aE-QsH"/>
+                                    <constraint firstItem="kCl-bv-cqm" firstAttribute="leading" secondItem="ban-4k-so3" secondAttribute="trailing" constant="30" id="ZIP-CG-NeQ"/>
+                                    <constraint firstItem="ban-4k-so3" firstAttribute="top" secondItem="VTU-7s-mIw" secondAttribute="top" constant="7" id="aGb-pS-kZa"/>
+                                    <constraint firstAttribute="trailing" secondItem="kCl-bv-cqm" secondAttribute="trailing" constant="18" id="pIx-Zi-tVv"/>
                                 </constraints>
-                                <state key="normal" title="SEND"/>
-                                <connections>
-                                    <action selector="sendButtonAction:" destination="6Q7-qw-8q9" eventType="touchUpInside" id="jP5-9y-ZaQ"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ban-4k-so3" firstAttribute="leading" secondItem="afx-kU-cnd" secondAttribute="leading" constant="33" id="1Cn-Py-Ccn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ban-4k-so3" secondAttribute="trailing" constant="65" id="Q2m-YV-tjf"/>
-                            <constraint firstAttribute="trailing" secondItem="kCl-bv-cqm" secondAttribute="trailing" constant="16" id="TUS-sK-xtT"/>
+                            <constraint firstItem="VTU-7s-mIw" firstAttribute="top" secondItem="pwo-vf-js8" secondAttribute="bottom" id="47K-2z-5fb"/>
+                            <constraint firstItem="VTU-7s-mIw" firstAttribute="leading" secondItem="afx-kU-cnd" secondAttribute="leading" id="4JD-dr-X29"/>
+                            <constraint firstAttribute="trailing" secondItem="VTU-7s-mIw" secondAttribute="trailing" id="96X-Nt-LqO"/>
+                            <constraint firstItem="vjQ-uv-H2u" firstAttribute="top" secondItem="VTU-7s-mIw" secondAttribute="bottom" id="DBM-pC-HOT"/>
                             <constraint firstItem="pwo-vf-js8" firstAttribute="leading" secondItem="afx-kU-cnd" secondAttribute="leading" id="WNE-3l-mWh"/>
-                            <constraint firstItem="ban-4k-so3" firstAttribute="top" secondItem="pwo-vf-js8" secondAttribute="bottom" constant="5" id="WuO-vX-8Rn"/>
-                            <constraint firstItem="vjQ-uv-H2u" firstAttribute="top" secondItem="kCl-bv-cqm" secondAttribute="bottom" constant="9" id="ctf-d6-EB5"/>
                             <constraint firstAttribute="trailing" secondItem="pwo-vf-js8" secondAttribute="trailing" id="g4u-aa-RbG"/>
-                            <constraint firstItem="vjQ-uv-H2u" firstAttribute="top" secondItem="ban-4k-so3" secondAttribute="bottom" constant="8" id="hon-rb-Qcb"/>
                             <constraint firstItem="pwo-vf-js8" firstAttribute="top" secondItem="fSg-PS-LcT" secondAttribute="bottom" id="vkj-Vn-Q1q"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="footerView" destination="VTU-7s-mIw" id="GtL-On-u0Y"/>
                         <outlet property="tableView" destination="pwo-vf-js8" id="yst-cN-xqi"/>
                         <outlet property="textField" destination="ban-4k-so3" id="y7k-vk-aZK"/>
                     </connections>

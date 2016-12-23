@@ -60,7 +60,11 @@
             completionHandler(dialogsArray, YES);
         }
     } errorBlock:^(NSError *error) {
-        if (completionHandler) {
+        if (error.code != VK_API_ERROR) {
+            [error.vkError.request repeat];
+        }
+        else {
+            NSLog(@"VK error: %@", error);
             completionHandler(nil, NO);
         }
     }];

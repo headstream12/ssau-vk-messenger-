@@ -126,7 +126,6 @@ static NSString *cellIdentifier = @"cellIdentifier";
             [self.navigationController pushViewController:controller animated:YES];
         }
     }];
-    
 }
 
 - (void)loadPage

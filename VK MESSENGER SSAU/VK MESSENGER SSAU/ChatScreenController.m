@@ -10,6 +10,7 @@
 #import "AuthorCell.h"
 #import "FriendCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <VK_ios_sdk/VKSdk.h>
 
 
 @interface ChatScreenController ()
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
 
 @end
 
@@ -64,21 +66,29 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
                                                                 action:@selector(backButtonTapped:)];
     leftItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setLeftBarButtonItem:leftItem];
+   
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   // [self.activityIndicator show:YES];
-    
-//    if (self.isEndLoad) {
-//        [self filingMessagesVOWithCount:20 andOffset:0 userID:self.userID needRemove:NO CompletionHandler:nil];
-//    }
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillAppear:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillDisappear:)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
 }
 #pragma mark - Table view data source
 - (IBAction)sendButtonAction:(UIButton *)sender {
-    
+    [self sendMessage];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -167,15 +177,75 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
         }
     }];
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.view endEditing:YES];
+}
+- (void)keyboardWillAppear:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(keyboardSize.height, 0.0, 0.0, 0.0);
+    [self.tableView setContentInset:contentInsets];
+    [self.tableView setScrollIndicatorInsets:contentInsets];
+    
+    CGRect messageFrame = self.footerView.frame;
+    messageFrame.origin.y -= keyboardSize.height;
+    [self.footerView setFrame:messageFrame];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+
+}
+
+- (void)keyboardWillDisappear:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
+
+    [UIView animateWithDuration:rate.floatValue animations:^{
+        [self.tableView setContentInset:UIEdgeInsetsZero];
+        [self.tableView setScrollIndicatorInsets:UIEdgeInsetsZero];
+        
+        CGRect messageFrame = self.footerView.frame;
+        messageFrame.origin.y += keyboardSize.height;
+        [self.footerView setFrame:messageFrame];
+    }];
+   
+}
+
+-(void)dismissKeyboard
+{
+    [self.view endEditing:YES];
+}
 
 - (void)sendMessage
 {
-    NSDictionary *parameters = @{@"count":intNumberCount,
-                                 @"preview_length":@50,
-                                 @"offset":intNumberOffset};
+    NSDictionary *parameters = @{@"user_id":self.userID,
+                                 @"peer_id":self.userID,
+                                 @"message":self.textField.text
+                                 };
     
-    VKRequest * requestDialogs = [VKRequest requestWithMethod:@"messages.getDialogs" parameters:parameters];
+    VKRequest *requestSend = [VKRequest requestWithMethod:@"messages.send" parameters:parameters];
+    [requestSend executeWithResultBlock:^(VKResponse *response) {
+        [self filingMessagesVOWithCount:self.messageVO.count
+                              andOffset:0
+                                 userID:self.userID
+                             needRemove:YES
+                      CompletionHandler:^(BOOL success) {
+                          self.textField.text = @"";
+                      }];
+    } errorBlock:^(NSError *error) {
+        NSLog(@"Error!");
+    }];
 
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:(BOOL)animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
