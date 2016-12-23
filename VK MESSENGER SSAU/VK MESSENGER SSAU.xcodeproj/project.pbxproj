@@ -597,6 +597,7 @@
 			baseConfigurationReference = 514FC076CDCFDED4851B20BB /* Pods-VK MESSENGER SSAU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YJ7WEU84RH;
 				INFOPLIST_FILE = "VK MESSENGER SSAU/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -611,6 +612,7 @@
 			baseConfigurationReference = A3503AB774818FEDDAE6F3F7 /* Pods-VK MESSENGER SSAU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YJ7WEU84RH;
 				INFOPLIST_FILE = "VK MESSENGER SSAU/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

@@ -177,10 +177,7 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
         }
     }];
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self.view endEditing:YES];
-}
+
 - (void)keyboardWillAppear:(NSNotification *)notification
 {
     NSDictionary *userInfo = [notification userInfo];
@@ -235,6 +232,7 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
                              needRemove:YES
                       CompletionHandler:^(BOOL success) {
                           self.textField.text = @"";
+                          [self.footerView becomeFirstResponder];
                       }];
     } errorBlock:^(NSError *error) {
         NSLog(@"Error!");
