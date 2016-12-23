@@ -47,7 +47,7 @@
                     NSNumber *timeInterval = message[@"date"];
                     NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval.doubleValue];
                     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                    [dateFormatter setDateFormat:@"hh:mm dd MMM"];
+                    [dateFormatter setDateFormat:@"HH:mm dd MMM"];
                     NSString *stringDate = [dateFormatter stringFromDate:date];
                     chatVO.timeString = stringDate;
                     NSNumber *isSendingNumber = message[@"out"];

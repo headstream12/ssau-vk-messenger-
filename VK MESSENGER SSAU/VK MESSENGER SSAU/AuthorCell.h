@@ -12,5 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UIView *backgroundMessageView;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end

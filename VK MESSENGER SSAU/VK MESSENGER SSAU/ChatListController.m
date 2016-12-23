@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) MBProgressHUD *activityIndicator;
 @property (assign, nonatomic) BOOL isEndLoad;
+@property (assign, nonatomic) BOOL isFirstLoad;
 
 @end
 
@@ -52,16 +53,30 @@ static NSString *cellIdentifier = @"cellIdentifier";
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshBegan) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+   // [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:80.f/255.0f green:114.f/255.0f blue:153/255.0f alpha:1]];
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:80.f/255.0f green:114.f/255.0f blue:153/255.0f alpha:1];
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
+    self.tableView.tableFooterView = [UIView new];
+    self.isFirstLoad = YES;
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.activityIndicator show:YES];
-    
-    if (self.isEndLoad) {
-        [self filingChatVOWithCount:20 andOffset:self.chatVO.count needRemove:NO];
+    if (self.isFirstLoad) {
+        [self.activityIndicator show:YES];
+        self.isFirstLoad = NO;
     }
+    
+//    if (self.isEndLoad) {
+//        [self filingChatVOWithCount:20 andOffset:self.chatVO.count needRemove:NO];
+//    }
 }
 
 #pragma mark - Table view data source
@@ -104,9 +119,11 @@ static NSString *cellIdentifier = @"cellIdentifier";
     controller.friendAvatar = chatVO.avatarDialog;
     controller.authorAvatar = chatVO.avatarMainUser;
     controller.messageVO = [[NSMutableArray alloc] init];
-    [controller filingMessagesVOWithCount:20 andOffset:0 userID:controller.userID needRemove:NO CompletionHandler:^(BOOL success) {
+    
+    controller.title = chatVO.nameString;
+    [controller filingMessagesVOWithCount:50 andOffset:0 userID:controller.userID needRemove:NO CompletionHandler:^(BOOL success) {
         if (success) {
-        [self presentViewController:controller animated:YES completion:nil];
+            [self.navigationController pushViewController:controller animated:YES];
         }
     }];
     

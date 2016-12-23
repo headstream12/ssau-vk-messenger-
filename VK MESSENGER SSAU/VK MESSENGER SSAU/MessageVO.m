@@ -43,7 +43,15 @@
             NSNumber *isSendingNumber = item[@"out"];
             messageVO.isSending = isSendingNumber.boolValue;
             NSNumber *readStateNumber = item[@"read_state"];
+            
             messageVO.readState = readStateNumber.boolValue;
+            NSNumber *timeInterval = item[@"date"];
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval.doubleValue];
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"HH:mm"];
+            NSString *stringDate = [dateFormatter stringFromDate:date];
+            messageVO.date = stringDate;
+            
             NSLog(@"message:= %@ ", messageVO.message);
             [dialogsArray addObject:messageVO];
             
