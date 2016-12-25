@@ -1,0 +1,6 @@
+framework module EHFAuthenticator_Touch_ID {
+  umbrella header "EHFAuthenticator-Touch-ID-umbrella.h"
+
+  export *
+  module * { export * }
+}

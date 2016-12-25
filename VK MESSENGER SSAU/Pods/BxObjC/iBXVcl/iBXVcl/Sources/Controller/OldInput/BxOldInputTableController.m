@@ -438,6 +438,7 @@ const NSString * const FNInputTableRowKeyboardType = @"keyboardType";
 								   [NSMutableDictionary dictionaryWithObjectsAndKeys: @"Город", FNInputTableRowHint,
                                     @"Samara", FNInputTableRowPlaceholder,
                                     @"Самара", FNInputTableRowValue,
+                                    @NO, FNInputTableRowIsEnabled,
                                     @"city",  FNInputTableRowFieldName, nil],
 								   [NSMutableDictionary dictionaryWithObjectsAndKeys: @"Район", FNInputTableRowHint, 
                                     @"area", FNInputTableRowFieldName, nil],
@@ -450,7 +451,8 @@ const NSString * const FNInputTableRowKeyboardType = @"keyboardType";
                                    [NSMutableDictionary dictionaryWithObjectsAndKeys: @"Дата рождения", FNInputTableRowHint,
                                     @"birthday", FNInputTableRowFieldName, @YES, FNInputTableRowIsDatePicker, nil],
                                    [NSMutableDictionary dictionaryWithObjectsAndKeys: 
-                                    @"Переход", FNInputTableRowHint, 
+                                    @"Переход", FNInputTableRowHint,
+                                    @NO, FNInputTableRowIsEnabled,
                                     @"Переход на страницу", FNInputTableRowValue,
                                     @"transport", FNInputTableRowFieldName, 
                                     [NSNumber numberWithBool: YES], FNInputTableRowIsAction,
@@ -638,6 +640,22 @@ const NSString * const FNInputTableRowKeyboardType = @"keyboardType";
         index++; // так как первый элемент пустой
     }
     [_variantPicker selectRow: index inComponent: 0 animated: NO];
+    [self pickerView: _variantPicker didSelectRow: index inComponent: 0];
+}
+
+- (void) updateDatePickerWithValue: (id) value
+{
+    if (value && [value isKindOfClass:NSString.class]) {
+        NSDate * date = [_dateFormatter dateFromString: value];
+        if (date) {
+            _datePicker.date = date;
+        } else {
+            _datePicker.date = [NSDate date];
+        }
+    } else {
+        _datePicker.date = [NSDate date];
+    }
+    [self changeDate];
 }
 
 - (void) updateTextInputViewWithData:(NSDictionary *) data
@@ -648,20 +666,10 @@ const NSString * const FNInputTableRowKeyboardType = @"keyboardType";
     id value = [data objectForKey:FNInputTableRowValue];
     if (_variants && _variants.count > 0) {
         _textInput.inputView = _variantPicker;
-        [self updateVariantPickerWithValue:value];
+        [self updateVariantPickerWithValue: value];
     } else if (isDatePicker && [isDatePicker boolValue]) {
         _textInput.inputView = _datePicker;
-        if (value && [value isKindOfClass:NSString.class]) {
-            NSDate * date = [_dateFormatter dateFromString: value];
-            if (date) {
-                _datePicker.date = date;
-            } else {
-                _datePicker.date = [NSDate date];
-            }
-        } else {
-            _datePicker.date = [NSDate date];
-        }
-        [self changeDate];
+        [self updateDatePickerWithValue: value];
     } else {
         _textInput.inputView = nil;
     }
@@ -1248,6 +1256,11 @@ const NSString * const FNInputTableRowKeyboardType = @"keyboardType";
 {
     NSNumber * isSwitch = [row objectForKey: FNInputTableRowIsSwitch];
     return isSwitch == nil || (![isSwitch boolValue]);
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self getEnabledFromRow: [self getRowDataFrom: indexPath]];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -85,12 +85,14 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BxObjC/BxObjC.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EHFAuthenticator-Touch-ID/EHFAuthenticator_Touch_ID.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VK-ios-sdk/VK_ios_sdk.framework"
   install_framework "$BUILT_PRODUCTS_DIR/XMLDictionary/XMLDictionary.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/BxObjC/BxObjC.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/EHFAuthenticator-Touch-ID/EHFAuthenticator_Touch_ID.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBProgressHUD/MBProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/VK-ios-sdk/VK_ios_sdk.framework"
   install_framework "$BUILT_PRODUCTS_DIR/XMLDictionary/XMLDictionary.framework"

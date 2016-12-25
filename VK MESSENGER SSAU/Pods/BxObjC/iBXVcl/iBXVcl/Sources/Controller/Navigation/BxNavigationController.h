@@ -14,8 +14,12 @@
 #import <UIKit/UIKit.h>
 
 @class BxNavigationController;
+@class BxNavigationBar;
 
 @interface UIViewController (BxNavigationController)
+
+// get BxNavigationController instead UINavigationController
+@property(strong, nonatomic, readonly) BxNavigationController *navController;
 
 //! Если возвращает NO, то не позволяет покинуть контроллер, например для завершения операции. По умолчанию YES
 - (BOOL) navigationShouldPopController: (BxNavigationController*) navigationController;
@@ -27,12 +31,14 @@
 
 //! Если определен как не nil, то эта понель по высоте будет показана ниже navigationBar. Высота панельки влияет на extendedEdgesBounds, учитывайте этот факт. Оптимальней будет, если вы это представление закешируете в своем контролере. Метод может вызываться до создания представления контролера.
 - (UIView*) navigationToolPanelWithController: (BxNavigationController*) navigationController;
+- (UIView*) navigationBackgroundWithController: (BxNavigationController*) navigationController;
 
 @end
 
 @interface BxNavigationController : UINavigationController
 
 @property (nonatomic, weak, readonly) UIView * toolPanel;
+@property (nonatomic, weak, readonly) UIView * backgroundView;
 
 //! реальный, немедленный выход с контролера.
 - (UIViewController *) immediatePopViewControllerAnimated:(BOOL)animated;

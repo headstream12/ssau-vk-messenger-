@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/BxObjC" "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/VK-ios-sdk" "$PODS_CONFIGURATION_BUILD_DIR/XMLDictionary"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/BxObjC" "$PODS_CONFIGURATION_BUILD_DIR/EHFAuthenticator-Touch-ID" "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD" "$PODS_CONFIGURATION_BUILD_DIR/VK-ios-sdk" "$PODS_CONFIGURATION_BUILD_DIR/XMLDictionary"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) SQLITE_CORE=1 SQLITE_UNICODE_ENABLE=1 SQLITE_ENABLE_FTS4=1 SQLITE_ENABLE_FTS4_PARENTHESIS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/BxObjC/BxObjC.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/VK-ios-sdk/VK_ios_sdk.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/XMLDictionary/XMLDictionary.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "BxObjC" -framework "MBProgressHUD" -framework "VK_ios_sdk" -framework "XMLDictionary"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/BxObjC/BxObjC.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/EHFAuthenticator-Touch-ID/EHFAuthenticator_Touch_ID.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/MBProgressHUD/MBProgressHUD.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/VK-ios-sdk/VK_ios_sdk.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/XMLDictionary/XMLDictionary.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "BxObjC" -framework "EHFAuthenticator_Touch_ID" -framework "MBProgressHUD" -framework "VK_ios_sdk" -framework "XMLDictionary"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

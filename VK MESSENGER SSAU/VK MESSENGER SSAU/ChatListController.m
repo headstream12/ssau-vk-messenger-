@@ -11,12 +11,16 @@
 #import "ChatCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "ChatScreenController.h"
+#import "EHFAuthenticator.h"
+
+@class AuthController;
 
 @interface ChatListController ()
 
 @property (strong, nonatomic) MBProgressHUD *activityIndicator;
 @property (assign, nonatomic) BOOL isEndLoad;
 @property (assign, nonatomic) BOOL isFirstLoad;
+@property (strong, nonatomic) UIView *viewHide;
 
 @end
 
@@ -62,6 +66,9 @@ static NSString *cellIdentifier = @"cellIdentifier";
 
     self.tableView.tableFooterView = [UIView new];
     self.isFirstLoad = YES;
+    
+
+    self.tableView.hidden = YES;
 }
 
 
@@ -69,11 +76,25 @@ static NSString *cellIdentifier = @"cellIdentifier";
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (self.isFirstLoad) {
-        [self.activityIndicator show:YES];
-        self.isFirstLoad = NO;
-    }
     
+    
+    
+    [[EHFAuthenticator sharedInstance] setReason:@"Подтвердите личность с помощью Touch ID"];
+    [[EHFAuthenticator sharedInstance] authenticateWithSuccess:^(){
+        [self presentAlertControllerWithMessage:@"Личность подтверждена"];
+        self.tableView.hidden = NO;
+        if (self.isFirstLoad) {
+            [self.activityIndicator show:YES];
+            self.isFirstLoad = NO;
+        }
+         
+    } andFailure:^(LAError errorCode){
+        [VKSdk forceLogout];
+
+
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }];
+
 //    if (self.isEndLoad) {
 //        [self filingChatVOWithCount:20 andOffset:self.chatVO.count needRemove:NO];
 //    }
@@ -113,6 +134,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
 //    chatScreenController.messageVO = [[NSMutableArray alloc] init];
 //    [chatScreenController filingMessagesVOWithCount:20 andOffset:0 userID:chatVO.userID needRemove:NO];
 //    [self.navigationController pushViewController:chatScreenController animated:YES];
+    
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ChatScreenController *controller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ChatScreenController"];
     controller.userID = chatVO.userID;
@@ -239,5 +261,10 @@ static NSString *cellIdentifier = @"cellIdentifier";
     }];
 }
 
+-(void) presentAlertControllerWithMessage:(NSString *) message{
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Touch ID" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 
 @end

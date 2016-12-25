@@ -16,6 +16,11 @@
 		B097C3591DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3581DFBFD1100E58776 /* VK_MESSENGER_SSAUTests.m */; };
 		B097C3641DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B097C3631DFBFD1200E58776 /* VK_MESSENGER_SSAUUITests.m */; };
 		B098AC631DFD33560045D59B /* MainUserVO.m in Sources */ = {isa = PBXBuildFile; fileRef = B098AC621DFD33560045D59B /* MainUserVO.m */; };
+		B09EAC4B1E0FC25500764ECC /* IGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B09EAC4A1E0FC25500764ECC /* IGDataManager.m */; };
+		B09EAC4E1E0FC29C00764ECC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B09EAC4C1E0FC29C00764ECC /* Model.xcdatamodeld */; };
+		B09EAC921E0FC60D00764ECC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B09EAC911E0FC60D00764ECC /* CoreData.framework */; };
+		B09EAC981E0FC75400764ECC /* Session+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = B09EAC951E0FC75400764ECC /* Session+CoreDataProperties.m */; };
+		B09EAC991E0FC75400764ECC /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = B09EAC971E0FC75400764ECC /* Session.m */; };
 		B0D21AF61E06BA2500F5A4E5 /* ChatScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D21AF51E06BA2500F5A4E5 /* ChatScreenController.m */; };
 		B0D21AFA1E06BA5C00F5A4E5 /* AuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D21AF81E06BA5C00F5A4E5 /* AuthorCell.m */; };
 		B0D21AFB1E06BA5D00F5A4E5 /* AuthorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0D21AF91E06BA5C00F5A4E5 /* AuthorCell.xib */; };
@@ -66,6 +71,14 @@
 		B097C3651DFBFD1200E58776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B098AC611DFD33560045D59B /* MainUserVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainUserVO.h; sourceTree = "<group>"; };
 		B098AC621DFD33560045D59B /* MainUserVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainUserVO.m; sourceTree = "<group>"; };
+		B09EAC491E0FC25500764ECC /* IGDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDataManager.h; sourceTree = "<group>"; };
+		B09EAC4A1E0FC25500764ECC /* IGDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGDataManager.m; sourceTree = "<group>"; };
+		B09EAC4D1E0FC29C00764ECC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B09EAC911E0FC60D00764ECC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B09EAC941E0FC75400764ECC /* Session+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Session+CoreDataProperties.h"; path = "../../../Downloads/CarShopApp/CarShopApp/Session+CoreDataProperties.h"; sourceTree = "<group>"; };
+		B09EAC951E0FC75400764ECC /* Session+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Session+CoreDataProperties.m"; path = "../../../Downloads/CarShopApp/CarShopApp/Session+CoreDataProperties.m"; sourceTree = "<group>"; };
+		B09EAC961E0FC75400764ECC /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = ../../../Downloads/CarShopApp/CarShopApp/Session.h; sourceTree = "<group>"; };
+		B09EAC971E0FC75400764ECC /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = ../../../Downloads/CarShopApp/CarShopApp/Session.m; sourceTree = "<group>"; };
 		B0D21AF41E06BA2500F5A4E5 /* ChatScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatScreenController.h; sourceTree = "<group>"; };
 		B0D21AF51E06BA2500F5A4E5 /* ChatScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatScreenController.m; sourceTree = "<group>"; };
 		B0D21AF71E06BA5C00F5A4E5 /* AuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorCell.h; sourceTree = "<group>"; };
@@ -94,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09EAC921E0FC60D00764ECC /* CoreData.framework in Frameworks */,
 				28EE6FA2D8F6587A56E5F468 /* Pods_VK_MESSENGER_SSAU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +141,7 @@
 		66A63610C61BD56EDBDED602 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B09EAC911E0FC60D00764ECC /* CoreData.framework */,
 				AE8525B78351076634EA1D8C /* libPods-VK MESSENGER SSAUTests.a */,
 				E4413D18C32D7744233ADD5E /* libPods-VK MESSENGER SSAUUITests.a */,
 				D57745FEB52E6E67EA1206E8 /* Pods_VK_MESSENGER_SSAU.framework */,
@@ -159,6 +174,7 @@
 		B097C33D1DFBFD1100E58776 /* VK MESSENGER SSAU */ = {
 			isa = PBXGroup;
 			children = (
+				B09EAC481E0FC1D900764ECC /* DataManagers */,
 				B0F7FFE51DFC4A58009FAE3C /* Value Objects */,
 				B097C3411DFBFD1100E58776 /* AppDelegate.h */,
 				B097C3421DFBFD1100E58776 /* AppDelegate.m */,
@@ -200,6 +216,28 @@
 				B097C3651DFBFD1200E58776 /* Info.plist */,
 			);
 			path = "VK MESSENGER SSAUUITests";
+			sourceTree = "<group>";
+		};
+		B09EAC481E0FC1D900764ECC /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				B09EAC931E0FC67800764ECC /* DataModels */,
+				B09EAC491E0FC25500764ECC /* IGDataManager.h */,
+				B09EAC4A1E0FC25500764ECC /* IGDataManager.m */,
+				B09EAC4C1E0FC29C00764ECC /* Model.xcdatamodeld */,
+			);
+			name = DataManagers;
+			sourceTree = "<group>";
+		};
+		B09EAC931E0FC67800764ECC /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				B09EAC941E0FC75400764ECC /* Session+CoreDataProperties.h */,
+				B09EAC951E0FC75400764ECC /* Session+CoreDataProperties.m */,
+				B09EAC961E0FC75400764ECC /* Session.h */,
+				B09EAC971E0FC75400764ECC /* Session.m */,
+			);
+			name = DataModels;
 			sourceTree = "<group>";
 		};
 		B0D21AF31E06B9E500F5A4E5 /* ChatController */ = {
@@ -439,16 +477,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09EAC991E0FC75400764ECC /* Session.m in Sources */,
 				B0F7FFE11DFC08DE009FAE3C /* AuthController.m in Sources */,
 				B097C3431DFBFD1100E58776 /* AppDelegate.m in Sources */,
 				B0D21B031E06C65000F5A4E5 /* MessageVO.m in Sources */,
+				B09EAC4B1E0FC25500764ECC /* IGDataManager.m in Sources */,
 				B097C3401DFBFD1100E58776 /* main.m in Sources */,
 				B0F7FFED1DFC9CC8009FAE3C /* ChatCell.m in Sources */,
+				B09EAC981E0FC75400764ECC /* Session+CoreDataProperties.m in Sources */,
 				B0F7FFE41DFC49CF009FAE3C /* ChatListController.m in Sources */,
 				B0D21AF61E06BA2500F5A4E5 /* ChatScreenController.m in Sources */,
 				B0D21AFA1E06BA5C00F5A4E5 /* AuthorCell.m in Sources */,
 				B0D21AFF1E06BA6D00F5A4E5 /* FriendCell.m in Sources */,
 				B098AC631DFD33560045D59B /* MainUserVO.m in Sources */,
+				B09EAC4E1E0FC29C00764ECC /* Model.xcdatamodeld in Sources */,
 				B0F7FFE81DFC4B7F009FAE3C /* ChatVO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -712,6 +754,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B09EAC4C1E0FC29C00764ECC /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B09EAC4D1E0FC29C00764ECC /* Model.xcdatamodel */,
+			);
+			currentVersion = B09EAC4D1E0FC29C00764ECC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B097C3331DFBFD1100E58776 /* Project object */;
 }

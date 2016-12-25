@@ -11,6 +11,8 @@
 #import "FriendCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <VK_ios_sdk/VKSdk.h>
+#import "EHFAuthenticator.h"
+
 
 
 @interface ChatScreenController ()
@@ -85,6 +87,8 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
                                                  selector:@selector(keyboardWillDisappear:)
                                                      name:UIKeyboardWillHideNotification
                                                    object:nil];
+    
+    
 }
 #pragma mark - Table view data source
 - (IBAction)sendButtonAction:(UIButton *)sender {
@@ -200,7 +204,6 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
     NSDictionary *userInfo = [notification userInfo];
     CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     NSNumber *rate = notification.userInfo[UIKeyboardAnimationDurationUserInfoKey];
-
     [UIView animateWithDuration:rate.floatValue animations:^{
         [self.tableView setContentInset:UIEdgeInsetsZero];
         [self.tableView setScrollIndicatorInsets:UIEdgeInsetsZero];
@@ -238,6 +241,11 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
         NSLog(@"Error!");
     }];
 
+}
+-(void) presentAlertControllerWithMessage:(NSString *) message{
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Touch ID" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

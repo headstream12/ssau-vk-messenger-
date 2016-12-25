@@ -5,4 +5,5 @@ target 'VK MESSENGER SSAU' do
     pod 'VK-ios-sdk', '1.4.4'
     pod 'BxObjC'
     pod 'MBProgressHUD'
+    pod 'EHFAuthenticator-Touch-ID', '0.0.4'
 end

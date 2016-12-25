@@ -10,7 +10,10 @@
 #import <VK_ios_sdk/VKSdk.h>
 #import "ChatListController.h"
 #import "MainUserVO.h"
+#import "Session.h"
+#import "EHFAuthenticator.h"
 
+typedef void(^HandlerSuccess)(void);
 
 @interface AuthController () <VKSdkDelegate, VKSdkUIDelegate>
 
@@ -35,9 +38,7 @@
     [super didReceiveMemoryWarning];
 }
 - (IBAction)authAction:(UIButton *)sender {
-    if (!self.autorized) {
-        [VKSdk authorize:@[VK_PER_PHOTOS,VK_PER_MESSAGES]];
-    }
+    [VKSdk authorize:@[VK_PER_PHOTOS,VK_PER_MESSAGES]];
 }
 
 #pragma mark - VKSdkDelegate
@@ -45,9 +46,9 @@
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result
 {
     NSLog(@"Authorization finished with result");
-    VKRequest * req = [[VKApi users] get:@{@"fields":@"photo_200"}];
     
-    [req executeWithResultBlock:^(VKResponse * response) {
+    if (result.token.accessToken) {
+
         
         ChatListController *listController = [[ChatListController alloc] init];
         listController.chatVO = [[NSMutableArray alloc] init];
@@ -55,22 +56,13 @@
         listController.mainUser = [MainUserVO getMainUser:^(BOOL success) {
             if (success) {
                 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:listController];
-                
+            
                 [self presentViewController:navController animated:YES completion:nil];
             }
         }];
         
         
-        
-    } errorBlock:^(NSError * error) {
-        if (error.code != VK_API_ERROR) {
-            [error.vkError.request repeat];
-        }
-        else {
-            NSLog(@"VK error: %@", error);
-        }
-    }];
-
+    }
 }
 
 - (void)vkSdkUserAuthorizationFailed
@@ -96,4 +88,10 @@
     
 }
 
+-(void) presentAlertControllerWithMessage:(NSString *) message withSuccessHandler:(HandlerSuccess)handler
+{
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"Touch ID" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alertController animated:YES completion:handler];
+}
 @end

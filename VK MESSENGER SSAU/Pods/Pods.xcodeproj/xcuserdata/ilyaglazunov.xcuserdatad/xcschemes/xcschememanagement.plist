@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EHFAuthenticator-Touch-ID.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09FE96790FD0E95F48554028134167FD</key>
+		<key>07C517DFAE8CC6FCF185468554FC9D01</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8A97F7F9266F326FCA32A379F25D14B6</key>
+		<key>3E27E81F58EB19B6572CCF4120887C64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E23903EAC709557F0FC45C374C45D95</key>
+		<key>75E7E24C7A03185BC58701DF679987B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B3F7E36CB3A5050F77EC56172DDB5889</key>
+		<key>BFA0F147B1F773BE7E30FCA837080BEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DE1D90E592E0C3042F778929E13C8BD3</key>
+		<key>DFF417E786B0E997834DB8FA885470D1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E8113DDC79BD4E5EB6D541FB39DA10AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

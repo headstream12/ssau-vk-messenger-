@@ -1,37 +1,42 @@
 PODS:
-  - BxObjC (1.1.10):
-    - BxObjC/Common (= 1.1.10)
-    - BxObjC/Data (= 1.1.10)
-    - BxObjC/DB (= 1.1.10)
-    - BxObjC/Map (= 1.1.10)
-    - BxObjC/Vcl (= 1.1.10)
-  - BxObjC/Common (1.1.10)
-  - BxObjC/Data (1.1.10):
+  - BxObjC (1.1.17):
+    - BxObjC/Common (= 1.1.17)
+    - BxObjC/Data (= 1.1.17)
+    - BxObjC/DB (= 1.1.17)
+    - BxObjC/Map (= 1.1.17)
+    - BxObjC/Vcl (= 1.1.17)
+  - BxObjC/Common (1.1.17)
+  - BxObjC/Data (1.1.17):
     - BxObjC/Common
     - XMLDictionary (= 1.4)
-  - BxObjC/DB (1.1.10):
+  - BxObjC/DB (1.1.17):
     - BxObjC/Common
-  - BxObjC/Map (1.1.10):
-    - BxObjC/Common
-    - BxObjC/Data
-  - BxObjC/Vcl (1.1.10):
+  - BxObjC/Map (1.1.17):
     - BxObjC/Common
     - BxObjC/Data
+  - BxObjC/Vcl (1.1.17):
+    - BxObjC/Common
+    - BxObjC/Data
+  - EHFAuthenticator-Touch-ID (0.0.4):
+    - EHFAuthenticator-Touch-ID/ObjC (= 0.0.4)
+  - EHFAuthenticator-Touch-ID/ObjC (0.0.4)
   - MBProgressHUD (1.0.0)
   - VK-ios-sdk (1.4.4)
   - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - BxObjC
+  - EHFAuthenticator-Touch-ID (= 0.0.4)
   - MBProgressHUD
   - VK-ios-sdk (= 1.4.4)
 
 SPEC CHECKSUMS:
-  BxObjC: a0cfa749733419c0fa1dd1524193c9f5234b89dd
+  BxObjC: e37cf98af1af37ee0e996eff9384a09f1e009b7b
+  EHFAuthenticator-Touch-ID: e026aaf4c1a2c30b08e749e0b2ca071806acb4d1
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   VK-ios-sdk: 296c3be1bb45faf4d9f9a2ca69dcf6ec71d9d4df
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-PODFILE CHECKSUM: b9f66e535033875c3902c69994eae8ce8f7e251c
+PODFILE CHECKSUM: d0406f3f425ca7592b35f2ae7fc6883f7a19659e
 
 COCOAPODS: 1.1.0.rc.2
