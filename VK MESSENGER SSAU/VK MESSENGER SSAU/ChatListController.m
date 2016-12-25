@@ -77,24 +77,25 @@ static NSString *cellIdentifier = @"cellIdentifier";
 {
     [super viewWillAppear:animated];
     
+    if (self.isFirstLoad) {
+        [self.activityIndicator show:YES];
+        self.isFirstLoad = NO;
+        [[EHFAuthenticator sharedInstance] setReason:@"Подтвердите личность с помощью Touch ID"];
+        [[EHFAuthenticator sharedInstance] authenticateWithSuccess:^(){
+            [self presentAlertControllerWithMessage:@"Личность подтверждена"];
+            self.tableView.hidden = NO;
+            
+            
+        } andFailure:^(LAError errorCode){
+            [VKSdk forceLogout];
+            
+            
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        }];
+
+    }
     
     
-    [[EHFAuthenticator sharedInstance] setReason:@"Подтвердите личность с помощью Touch ID"];
-    [[EHFAuthenticator sharedInstance] authenticateWithSuccess:^(){
-        [self presentAlertControllerWithMessage:@"Личность подтверждена"];
-        self.tableView.hidden = NO;
-        if (self.isFirstLoad) {
-            [self.activityIndicator show:YES];
-            self.isFirstLoad = NO;
-        }
-         
-    } andFailure:^(LAError errorCode){
-        [VKSdk forceLogout];
-
-
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    }];
-
 //    if (self.isEndLoad) {
 //        [self filingChatVOWithCount:20 andOffset:self.chatVO.count needRemove:NO];
 //    }
