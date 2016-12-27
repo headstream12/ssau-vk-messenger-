@@ -79,6 +79,7 @@
 		B09EAC951E0FC75400764ECC /* Session+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Session+CoreDataProperties.m"; path = "../../../Downloads/CarShopApp/CarShopApp/Session+CoreDataProperties.m"; sourceTree = "<group>"; };
 		B09EAC961E0FC75400764ECC /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Session.h; path = ../../../Downloads/CarShopApp/CarShopApp/Session.h; sourceTree = "<group>"; };
 		B09EAC971E0FC75400764ECC /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Session.m; path = ../../../Downloads/CarShopApp/CarShopApp/Session.m; sourceTree = "<group>"; };
+		B0B263DB1E12C9E600E8FA6E /* VK MESSENGER SSAU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VK MESSENGER SSAU.entitlements"; sourceTree = "<group>"; };
 		B0D21AF41E06BA2500F5A4E5 /* ChatScreenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatScreenController.h; sourceTree = "<group>"; };
 		B0D21AF51E06BA2500F5A4E5 /* ChatScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatScreenController.m; sourceTree = "<group>"; };
 		B0D21AF71E06BA5C00F5A4E5 /* AuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorCell.h; sourceTree = "<group>"; };
@@ -174,6 +175,7 @@
 		B097C33D1DFBFD1100E58776 /* VK MESSENGER SSAU */ = {
 			isa = PBXGroup;
 			children = (
+				B0B263DB1E12C9E600E8FA6E /* VK MESSENGER SSAU.entitlements */,
 				B09EAC481E0FC1D900764ECC /* DataManagers */,
 				B0F7FFE51DFC4A58009FAE3C /* Value Objects */,
 				B097C3411DFBFD1100E58776 /* AppDelegate.h */,
@@ -359,6 +361,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = YJ7WEU84RH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					B097C3531DFBFD1100E58776 = {
 						CreatedOnToolsVersion = 8.0;
@@ -639,6 +646,7 @@
 			baseConfigurationReference = 514FC076CDCFDED4851B20BB /* Pods-VK MESSENGER SSAU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "VK MESSENGER SSAU/VK MESSENGER SSAU.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YJ7WEU84RH;
 				INFOPLIST_FILE = "VK MESSENGER SSAU/Info.plist";
@@ -654,6 +662,7 @@
 			baseConfigurationReference = A3503AB774818FEDDAE6F3F7 /* Pods-VK MESSENGER SSAU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "VK MESSENGER SSAU/VK MESSENGER SSAU.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YJ7WEU84RH;
 				INFOPLIST_FILE = "VK MESSENGER SSAU/Info.plist";

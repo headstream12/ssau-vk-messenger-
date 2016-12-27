@@ -57,7 +57,6 @@ static NSString *cellIdentifier = @"cellIdentifier";
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshBegan) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
-   // [self.navigationController.navigationBar setBackgroundColor:[UIColor colorWithRed:80.f/255.0f green:114.f/255.0f blue:153/255.0f alpha:1]];
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:80.f/255.0f green:114.f/255.0f blue:153/255.0f alpha:1];
     self.navigationController.navigationBar.translucent = NO;
@@ -67,8 +66,14 @@ static NSString *cellIdentifier = @"cellIdentifier";
     self.tableView.tableFooterView = [UIView new];
     self.isFirstLoad = YES;
     
-
     self.tableView.hidden = YES;
+    
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"exit"]
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(exitButtonTapped:)];
+    rightItem.tintColor = [UIColor whiteColor];
+    [self.navigationItem setRightBarButtonItem:rightItem];
 }
 
 
@@ -87,18 +92,16 @@ static NSString *cellIdentifier = @"cellIdentifier";
             
             
         } andFailure:^(LAError errorCode){
-            [VKSdk forceLogout];
-            
-            
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }];
 
     }
-    
-    
-//    if (self.isEndLoad) {
-//        [self filingChatVOWithCount:20 andOffset:self.chatVO.count needRemove:NO];
-//    }
+}
+
+- (void)exitButtonTapped:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+        [VKSdk forceLogout];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -206,31 +209,6 @@ static NSString *cellIdentifier = @"cellIdentifier";
     cell.messageLabel.text = chatVO.messageString;
     cell.dateLabel.text = chatVO.timeString;
     cell.nameLabel.text = chatVO.nameString;
-//    if (!chatVO.isSending) {
-//        [cell.youLabel setHidden:YES];
-//        cell.messageConstraint.constant = 8;
-//    } else {
-//        [cell.youLabel setHidden:NO];
-//        cell.messageConstraint.constant = 37;
-//    }
-//    cell.avatarView.image = chatVO.avatarDialog;
-//    cell.avatarView.layer.cornerRadius = 29.f;
-//    cell.avatarView.clipsToBounds = YES;
-//    UIView *backView = [[UIView alloc] init];
-//
-//    if (!chatVO.readState && !chatVO.isSending) {
-//        [cell.readStateView setBackgroundColor:[UIColor clearColor]];
-//        [backView setBackgroundColor:[UIColor colorWithHex:0xE5EBF0]];//E7EDF3
-//    }
-//    if (chatVO.readState) {
-//        [backView setBackgroundColor:[UIColor whiteColor]];
-//        [cell.readStateView setBackgroundColor:[UIColor whiteColor]];
-//    }
-//    if (!chatVO.readState && chatVO.isSending) {
-//        [cell.readStateView setBackgroundColor:[UIColor colorWithHex:0xE5EBF0]];
-//        [backView setBackgroundColor:[UIColor whiteColor]];
-//    }
-//    [cell setBackgroundView:backView];
 }
 
 - (void)refreshBegan

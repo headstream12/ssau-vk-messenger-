@@ -60,15 +60,14 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshBegan) forControlEvents:UIControlEventValueChanged];
     self.tableView.refreshControl = refreshControl;
-//    self.activityIndicator = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-//    [self.navigationController.view addSubview:self.activityIndicator];
+
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_back"]
                                                                  style:UIBarButtonItemStylePlain
                                                                 target:self
                                                                 action:@selector(backButtonTapped:)];
     leftItem.tintColor = [UIColor whiteColor];
     [self.navigationItem setLeftBarButtonItem:leftItem];
-   
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
@@ -163,7 +162,6 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
                 CompletionHandler:(Handler)completionHandler
 {
     __weak ChatScreenController *weakself = self;
-   // [self.activityIndicator show:YES];
 
     self.isEndLoad = NO;
     [MessageVO loadListMessagesWithCount:count andOffset:offset userID:userID completionBlock:^(NSArray *messages, BOOL success) {
@@ -174,7 +172,6 @@ static NSString *cellFriendIdentifier = @"cellFriendIdentifier";
             [weakself.messageVO addObjectsFromArray:messages];
             [weakself.tableView reloadData];
             weakself.isEndLoad = YES;
-            //[self.activityIndicator hide:YES];
             if (completionHandler) {
                 completionHandler(YES);
             }
